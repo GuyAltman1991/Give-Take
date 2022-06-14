@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/faviconSlideShowImage.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/public/style.css" />
+    <script defer src="/src/app.js" type="module"></script>
+    <title>Give&Take</title>
+  </head>
+
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-md navbar-dark bg-dark"
+        aria-label="Fourth navbar example"
+      >
+        <div class="container-fluid">
+          <span id="home-page-link" class="navbar-brand"> Give&Take</span>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample04"
+            aria-controls="navbarsExample04"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExample04">
+            <div class="d-flex justify-content-between col-12">
+              <div>
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
+                    <span
+                      class="nav-link active"
+                      aria-current="page"
+                      id="about-link"
+                      >About</span
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <span
+                      class="nav-link active"
+                      aria-current="page"
+                      id="give-link"
+                      >Give</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
+                    <span
+                      class="nav-link active cursor"
+                      aria-current="page"
+                      id="signup-page-link"
+                      tabindex="2"
+                      >Signup</span
+                    >
+                  </li>
+
+                  <li class="nav-item d-block">
+                    <span
+                      class="nav-link active"
+                      aria-current="page"
+                      id="login-link"
+                      >Login</span
+                    >
+                  </li>
+
+                  <ul id="logout-link-container" class="d-none">
+                    <li class="nav-item">
+                      <span
+                        class="nav-link active cursor"
+                        aria-current="page"
+                        id="logout-link"
+                        >Logout</span
+                      >
+                    </li>
+                  </ul>
+
+                  <li class="nav-item">
+                    <span
+                      class="nav-link active"
+                      aria-current="page"
+                      id="edit-user-link"
+                      >Edit User</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container col-12 mt-4">
+      <!-- PAGES -->
+      <!-- home page -->
+      <div id="home-page" class="   ">
+        <!-- שדה חיפוש -->
+        <div id="search-container" class="d-none">
+          <div class="container mb-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search picture by title"
+              id="search-input"
+            />
+          </div>
+        </div>
+        <div
+          id="home-page-headline"
+          class="col-12 col-md-10 col-xl-8 container d-block"
+        >
+          <br />
+          <h1 id="headline" class="text-center display-4">GIVE AND TAKE</h1>
+          <h2 id="subtitle" class="center fs-5">
+            We care about Our planet. And we care about the people who live on
+            Earth.
+          </h2>
+          <br />
+          <hr />
+          <h4 class="text-center">
+            Instead of throwing away the expired products, we invite you to find
+            someone who will find what to do with them.
+          </h4>
+          <br /><br />
+        </div>
+
+        <!-- בקרי תצוגה -->
+        <div class="center mb-4 mt-4 d-flex justify-content-around">
+          <i class="bi bi-diagram-3" id="display-mode-three-posts"></i>
+          <i class="bi bi-table" id="display-mode-one-post-link"></i>
+        </div>
+        <div id="data-container">
+          <!--  תצוגת פוסטים - שלוש בדף -->
+          <div id="display-mode-posts-container" class="bg-danger d-flex"></div>
+
+          <!--   תצוגת  -טבלה -   -->
+          <div id="table-container" class="d-none">
+            <table class="table container">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Image</th>
+                  <th>Src</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Location</th>
+                  <th>Phone Number</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- תצוגת אין מידע -->
+        <div id="no-data-container" class="d-none">
+          <!-- כותרות אין מידע  -->
+          <div class="center mt-4">
+            <div class="col-12 col-md-10 col-xl-8">
+              <h1 class="text-center display-4">NO DATA</h1>
+              <h2 class="fs-5">
+                Opss... It seems that there are no pictures to show
+              </h2>
+              <hr />
+              <p id="goto-create-pic-page-link" class="cursor text-primary">
+                click here to add a new picture...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- more details about the post פרטים נוספים על הפוסט -->
+      <div class="center mt-4 d-none" id="more-details-headline">
+        <div class="col-12 col-md-10 col-xl-8 center">
+          <h1 class="text-center display-4">MORE DETAILS ABOUT THE POST</h1>
+          <h2 class="fs-5"></h2>
+          <hr />
+        </div>
+      </div>
+      <div id="more-details-post-page" class="d-none"></div>
+
+      <!-- About page -->
+      <div id="about-page" class="center mt-4 d-none container">
+        <div class="col-12 col-md-10 col-xl-8 container">
+          <h1 id="headline" class="text-center display-4">About</h1>
+          <h2 id="subtitle" class="fs-5">
+            We care about our planet. And we care about the people who live on
+            Earth.
+          </h2>
+          <hr />
+          <h4>
+            בכל יום נזרקים מאות טונות של מוצרים פגי תוקף ברחבי העולם, מוצרי
+            מזון, מוצרי היגיינה, תרופות, ועוד.. זה פוגע בסביבה, וזה בעיקר חבל כי
+            יש המון אנשים נזקקים שיכולים להפיק תועלת מהדברים שעוד רגע נזרקים.
+            האפליקציה תיתן את ההזדמנות לחבר בין אלה שרוצים להיפטר מהמוצרים
+            (סופרמרקט, פארם, מסעדות, קייטרינג, אנשים פרטיים), לבין אלה שעדיין
+            יכולים להפיק מהם תועלת. למשל: עמותות שמבשלות לבתי תמחוי שיוכלו לקחת
+            מוצרי מזון שבקרוב נזרקים ויורדים מהמדף ולבשל אותם עבור אנשים שישבעו
+            מהם. למשל: אנשים פרטיים שנזקקים או שסתם מודעים ושומרים על הסביבה,
+            יוכלו לפנות דרך האפליקציה ולקבל מזון או מוצרים אחרים שגם ככה היו
+            נזרקים עוד מעט.
+          </h4>
+        </div>
+        <!-- מצגת תמונות -->
+        <div class="slider mt-4">
+          <div class="center col-12 col-md-10 col-xl-8 container">
+            <div class="col-12 col-md-10 col-xl-8">
+              <figure>
+                <img src="..." alt="..." class="img-fluid" id="slider-image" />
+                <figcaption>
+                  Photographed by: <span id="slider-credits">...</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="center mb-4">
+            <div id="slider-prev-btn" class="btn btn-outline-dark mx-2">
+              Prev
+            </div>
+            <div id="slider-next-btn" class="btn btn-outline-dark mx-2">
+              Next
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Give page -->
+      <!-- דף יצירת פוסט -->
+      <div id="give-page" class="center container d-none">
+        <div class="col-12 col-md-10 col-xl-8 container">
+          <h1 id="headline" class="text-center display-4">GIVE</h1>
+          <h2 id="subtitle" class="fs-5">Post your things</h2>
+          <h4></h4>
+          <hr />
+
+          <!-- כותרות יצירת פוסט -->
+          <div class="center mt-4">
+            <div class="col-12 col-md-10 col-xl-8">
+              <h1 class="text-center display-4">CREATE POST</h1>
+              <h2 class="fs-5">Here you can add a new post</h2>
+            </div>
+          </div>
+          <!-- שדות יצירת פוסט -->
+          <div class="center mt-4">
+            <form class="form col-12 col-md-10 col-xl-8 border p-2 rounded">
+              <div>
+                <label for="url-field">url (image link)</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  name="url"
+                  id="url-field"
+                  minlength="2"
+                />
+                <span id="url-error-span" class="text-danger"></span>
+              </div>
+              <div>
+                <label for="alt-field">alt (Head line)</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  name="alt"
+                  id="alt-field"
+                  minlength="2"
+                />
+                <span id="alt-error-span" class="text-danger"></span>
+              </div>
+
+              <div>
+                <label for="description-field">description</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  name="description"
+                  id="description-field"
+                />
+                <span id="description-error-span" class="text-danger"></span>
+              </div>
+
+              <div>
+                <label for="location-field">location</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  name="location"
+                  id="location-field"
+                />
+                <span id="location-error-span" class="text-danger"></span>
+              </div>
+
+              <div>
+                <label for="phone-field">Phone</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  name="phone"
+                  id="phone-field"
+                />
+                <span id="phone-error-span" class="text-danger"></span>
+              </div>
+
+              <input
+                id="submit-create-post-btn"
+                type="button"
+                value="Submit"
+                class="btn btn-primary col-12 mb-2"
+                disabled
+              />
+              <input
+                id="cancel-create-post-btn"
+                type="button"
+                value="Cancel"
+                class="btn btn-danger col-12 mb-2"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- דף עריכת תמונה -->
+      <div id="edit-post-page" class="d-none">
+        <!-- כותרת עריכת תמונה -->
+        <div class="center mt-4">
+          <div class="col-12 col-md-10 col-xl-8">
+            <h1 class="text-center display-4">EDIT POST FORM</h1>
+            <h2 class="fs-5">Here you can edit the selected post</h2>
+            <hr />
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row mx-0">
+            <div class="center">
+              <div
+                class="form col-12 col-md-10 col-xl-8 border p-2 rounded mb-2"
+              >
+                <img
+                  id="edit-post-display"
+                  src="..."
+                  alt="..."
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+
+            <div class="center">
+              <form class="form col-12 col-md-10 col-xl-8 border p-2 rounded">
+                <div>
+                  <label for="url-edit-post-field">Url</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    name="url"
+                    id="url-edit-post-field"
+                    minlength="2"
+                  />
+                  <span
+                    id="url-edit-post-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div>
+                  <label for="alt-edit-post-field">Alt</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    name="alt"
+                    id="alt-edit-post-field"
+                  />
+                  <span
+                    id="alt-edit-post-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+
+                <div>
+                  <label for="description-edit-post-field">Description</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    name="description"
+                    id="description-edit-post-field"
+                  />
+                  <span
+                    id="description-edit-post-erroe-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div>
+                  <label for="location-edit-post-field">Location</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    name="location"
+                    id="location-edit-post-field"
+                  />
+                  <span
+                    id="location-edit-post-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div>
+                  <label for="phone-edit-post-field">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    name="phone"
+                    id="phone-edit-post-field"
+                  />
+                  <span
+                    id="phone-edit-post-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+
+                <input
+                  type="button"
+                  value="submit"
+                  id="submit-edit-post-btn"
+                  class="btn btn-primary col-12 mb-2"
+                  disabled
+                />
+                <input
+                  type="button"
+                  value="cancel"
+                  id="cancel-edit-post-btn"
+                  class="btn btn-danger col-12 mb-2"
+                  disabled
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- דף הרשמה -->
+      <div id="signup-page" class="d-none">
+        <div class="bg-light">
+          <!-- כותרות הרשמה -->
+          <div class="center pt-4">
+            <div class="col-12 col-md-10 col-xl-8">
+              <h1 class="text-center display-4">SIGNUP PAGE</h1>
+              <h2 class="fs-5">Signup and start like buy and add pictures</h2>
+              <hr />
+            </div>
+          </div>
+
+          <div class="center">
+            <form class="form col-12 col-md-10 col-xl-8 border p-2 rounded">
+              <h6>Name</h6>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <label for="first-name-signup-field"
+                    >First Name<span class="text-danger">*</span></label
+                  >
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    name="first"
+                    id="first-name-signup-field"
+                    minlength="2"
+                    autocomplete="off"
+                    autocomplete="off"
+                  />
+                  <span
+                    id="first-name-signup-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="last-name-signup-field"
+                    >Last Name<span class="text-danger">*</span></label
+                  >
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    name="last"
+                    id="last-name-signup-field"
+                    autocomplete="off"
+                  />
+                  <span
+                    id="last-name-signup-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+              </div>
+              <h6>Address</h6>
+              <div class="row">
+                <div class="col-12 col-md-6 col-xl-4">
+                  <label for="state-signup-field">State</label>
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="text"
+                    name="state"
+                    id="state-signup-field"
+                  />
+                  <span id="state-signup-error-span" class="text-danger"></span>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  <label for="country-signup-field">Country</label>
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="text"
+                    name="country"
+                    id="country-signup-field"
+                  />
+                  <span
+                    id="country-signup-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  <label for="city-signup-field">City</label>
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="text"
+                    name="city"
+                    id="city-signup-field"
+                  />
+                  <span id="city-signup-error-span" class="text-danger"></span>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  <label for="street-signup-field">Street</label>
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="text"
+                    name="street"
+                    id="street-signup-field"
+                  />
+                  <span
+                    id="street-signup-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  <label for="house-signup-field">House Number</label>
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="number"
+                    name="house"
+                    id="house-signup-field"
+                  />
+                  <span id="house-signup-error-span" class="text-danger"></span>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  <label for="zip-signup-field">Zip Code</label>
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="number"
+                    name="zip"
+                    id="zip-signup-field"
+                  />
+                  <span id="zip-signup-error-span" class="text-danger"></span>
+                </div>
+              </div>
+              <h6>Means of contact</h6>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <label for="email-signup-field"
+                    >Email<span class="text-danger">*</span></label
+                  >
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="text"
+                    name="email"
+                    id="email-signup-field"
+                    minlength="2"
+                  />
+                  <span id="email-signup-error-span" class="text-danger"></span>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="phone-signup-field">Phone</label>
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="text"
+                    name="phone"
+                    id="phone-signup-field"
+                  />
+                  <span id="phone-signup-error-span" class="text-danger"></span>
+                </div>
+              </div>
+              <h6>Security</h6>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <label for="password-signup-field"
+                    >Password<span class="text-danger">*</span></label
+                  >
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="password"
+                    name="password"
+                    id="password-signup-field"
+                    minlength="2"
+                  />
+                  <span
+                    id="password-signup-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="password-reenter-signup-field"
+                    >Re-enter Password<span class="text-danger">*</span></label
+                  >
+                  <input
+                    autocomplete="off"
+                    class="form-control mb-2"
+                    type="password"
+                    name="passwordReEnter"
+                    id="password-reenter-signup-field"
+                    minlength="2"
+                  />
+                  <span
+                    id="password-reenter-signup-error-span"
+                    class="text-danger"
+                  ></span>
+                </div>
+              </div>
+              <div class="center my-2">
+                <div>
+                  <label for="isBiz-signup-field">Business Client</label>
+                  <input
+                    autocomplete="off"
+                    class="form-check-inline mb-2"
+                    type="checkbox"
+                    name="isBiz"
+                    id="isBiz-signup-field"
+                  />
+                </div>
+              </div>
+              <input
+                autocomplete="off"
+                id="submit-signup-user-btn"
+                type="button"
+                value="Submit"
+                class="btn btn-primary col-12 mb-2"
+                disabled
+              />
+              <input
+                autocomplete="off"
+                id="cancel-signup-user-btn"
+                type="button"
+                value="Cancel"
+                class="btn btn-danger col-12 mb-2"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- דף התחברות -->
+      <div id="login-page" class="d-none">
+        <!-- כותרות התחברות -->
+        <div class="center mt-4">
+          <div class="col-12 col-md-10 col-xl-8">
+            <h1 class="text-center display-4">LOGIN PAGE</h1>
+            <h2 class="fs-5">Login to add a new Post</h2>
+            <hr />
+          </div>
+        </div>
+
+        <div class="center h50">
+          <form
+            class="form bg-light col-12 col-md-6 col-xl-4 border rounded p-3"
+          >
+            <div class="col-12">
+              <label for="login-email"
+                >Email <span class="text-danger">*</span>
+              </label>
+              <input
+                placeholder="user@gmail.com"
+                id="login-email"
+                class="form-control"
+                name="login-email"
+                type="email"
+                autocomplete="off"
+              />
+              <span id="login-email-error" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+              <label for="login-password"
+                >Password <span class="text-danger">*</span>
+              </label>
+              <input
+                placeholder="enter password"
+                id="login-password"
+                class="form-control"
+                name="login-password"
+                type="password"
+                autocomplete="off"
+              />
+              <span id="login-password-error" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 my-1">
+              Not registered yet?
+              <span id="link-to-signup-page" class="text-primary cursor"
+                >Click here...</span
+              >
+            </div>
+            <div class="col-12">
+              <input
+                id="submit-login-btn"
+                type="button"
+                class="btn btn-primary col-12 my-2"
+                value="Login"
+                disabled
+              />
+
+              <input
+                type="button"
+                class="btn btn-danger col-12 mb-2"
+                value="Cancel"
+                id="cancel-login-btn"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- דף עריכת פרטי משתמש -->
+      <div id="edit-user-page" class="d-none">
+        <!--  כותרת עריכת משתמש  -->
+        <div class="center mt-4">
+          <div class="col-12 col-md-10 col-xl-8">
+            <h1 class="text-center display-4">EDIT USER FORM</h1>
+            <h2 class="fs-5">Here you can edit your details.</h2>
+            <hr />
+          </div>
+        </div>
+
+        <div class="center">
+          <form class="form col-12 col-md-10 col-xl-8 border p-2 rounded">
+            <h6>Name</h6>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <label for="first-name-edituser-field"
+                  >First Name<span class="text-danger">*</span></label
+                >
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  name="firstedit"
+                  id="first-name-edituser-field"
+                  minlength="2"
+                  autocomplete="off"
+                  autocomplete="off"
+                />
+                <span
+                  id="first-name-edituser-error-span"
+                  class="text-danger"
+                ></span>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="last-name-edituser-field"
+                  >Last Name<span class="text-danger">*</span></label
+                >
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  name="lastedit"
+                  id="last-name-edituser-field"
+                  autocomplete="off"
+                />
+                <span
+                  id="last-name-edituser-error-span"
+                  class="text-danger"
+                ></span>
+              </div>
+            </div>
+            <h6>Address</h6>
+            <div class="row">
+              <div class="col-12 col-md-6 col-xl-4">
+                <label for="state-edituser-field">State</label>
+                <input
+                  autocomplete="off"
+                  class="form-control mb-2"
+                  type="text"
+                  name="stateedit"
+                  id="state-edituser-field"
+                />
+                <span id="state-edituser-error-span" class="text-danger"></span>
+              </div>
+              <div class="col-12 col-md-6 col-xl-4">
+                <label for="country-edituser-field">Country</label>
+                <input
+                  autocomplete="off"
+                  class="form-control mb-2"
+                  type="text"
+                  name="countryedit"
+                  id="country-edituser-field"
+                />
+                <span
+                  id="country-edituser-error-span"
+                  class="text-danger"
+                ></span>
+              </div>
+              <div class="col-12 col-md-6 col-xl-4">
+                <label for="city-edituser-field">City</label>
+                <input
+                  autocomplete="off"
+                  class="form-control mb-2"
+                  type="text"
+                  name="cityedit"
+                  id="city-edituser-field"
+                />
+                <span id="city-edituser-error-span" class="text-danger"></span>
+              </div>
+              <div class="col-12 col-md-6 col-xl-4">
+                <label for="street-edituser-field">Street</label>
+                <input
+                  autocomplete="off"
+                  class="form-control mb-2"
+                  type="text"
+                  name="streetedit"
+                  id="street-edituser-field"
+                />
+                <span
+                  id="street-edituser-error-span"
+                  class="text-danger"
+                ></span>
+              </div>
+              <div class="col-12 col-md-6 col-xl-4">
+                <label for="house-edituser-field">House Number</label>
+                <input
+                  autocomplete="off"
+                  class="form-control mb-2"
+                  type="number"
+                  name="houseedit"
+                  id="house-edituser-field"
+                />
+                <span id="house-edituser-error-span" class="text-danger"></span>
+              </div>
+              <div class="col-12 col-md-6 col-xl-4">
+                <label for="zip-edituser-field">Zip Code</label>
+                <input
+                  autocomplete="off"
+                  class="form-control mb-2"
+                  type="number"
+                  name="zipedit"
+                  id="zip-edituser-field"
+                />
+                <span id="zip-edituser-error-span" class="text-danger"></span>
+              </div>
+            </div>
+            <h6>Means of contact</h6>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <label for="phone-edituser-field">Phone</label>
+                <input
+                  autocomplete="off"
+                  class="form-control mb-2"
+                  type="text"
+                  name="phoneedit"
+                  id="phone-edituser-field"
+                />
+                <span id="phone-edituser-error-span" class="text-danger"></span>
+              </div>
+            </div>
+
+            <div class="center my-2">
+              <div>
+                <label for="isBiz-edituser-field">Business Client</label>
+                <input
+                  autocomplete="off"
+                  class="form-check-inline mb-2"
+                  type="checkbox"
+                  name="isBizedit"
+                  id="isBiz-edituser-field"
+                />
+              </div>
+            </div>
+            <input
+              autocomplete="off"
+              id="submit-edituser-user-btn"
+              type="button"
+              value="Submit"
+              class="btn btn-primary col-12 mb-2"
+              disabled
+            />
+            <input
+              autocomplete="off"
+              id="cancel-edituser-user-btn"
+              type="button"
+              value="Cancel"
+              class="btn btn-danger col-12 mb-2"
+            />
+          </form>
+        </div>
+      </div>
+
+      <!-- דף שגיאה 404 -->
+      <div id="error404-page" class="d-none">
+        <!-- כותרות שגיאה 404 -->
+        <div class="center mt-4">
+          <div class="col-12 col-md-10 col-xl-8">
+            <h1 class="text-center display-4">ERROR 404</h1>
+            <h2 class="fs-5">Page not found</h2>
+            <hr />
+            <p id="return-to-home-page-link" class="cursor text-primary">
+              click here to return to the home page...
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p class="text-light center bottom-height mb-0">
+        &copy; > Created by Guy Altman
+      </p>
+    </footer>
+  </body>
+</html>
