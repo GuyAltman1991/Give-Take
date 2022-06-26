@@ -87,7 +87,7 @@ const initialData = () => {
         location: "Ramat Gan",
         phone: "0503455434",
         publisher: "Yakov",
-        createdAt: "Date",
+        createdAt: new Date(),
       },
       {
         profilpic:
@@ -99,7 +99,7 @@ const initialData = () => {
         location: "Mitspe",
         phone: "0503455434",
         publisher: "Simi",
-        createdAt: "Date",
+        createdAt: new Date(),
       },
       {
         profilpic:
@@ -111,7 +111,7 @@ const initialData = () => {
         location: "Holon",
         phone: "0503455434",
         publisher: "Yanay",
-        createdAt: "Date",
+        createdAt: new Date(),
       },
     ],
   };

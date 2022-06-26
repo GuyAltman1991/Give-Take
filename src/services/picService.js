@@ -274,7 +274,7 @@ export const handleEditPost = (posts, id) => {
 
   mapToModel(posts, id);
   editPicListeners();
-  SUBMIT_EDIT_POST_BTN.addEventListener("click", () => onSubmitEditPic(id));
+  SUBMIT_EDIT_POST_BTN.addEventListener("click", () => onSubmitEditPic(posts, id));
   CANCELֹ_EDIT_BTN.addEventListener("click", onCancelEditPic);
 };
 

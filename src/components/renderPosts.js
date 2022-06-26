@@ -6,7 +6,7 @@ import {
 const renderPosts = (posts = []) => {
   DISPLAY_MODE_THREE_POSTS_CONTAINER.innerHTML = "";
   posts.map((post) => {
-    const { alt, description, url, location, phone, _id } = post;
+    const { alt, description, url, location, phone, _id , createdAt} = post;
     DISPLAY_MODE_THREE_POSTS_CONTAINER.innerHTML += `
     
     <div class="card " style="width: 18rem">
@@ -34,7 +34,7 @@ const renderPosts = (posts = []) => {
 </div>    
 </div>
     <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+      <small class="text-muted">Last updated ${createdAt}</small>
     </div>
   </div>   
  

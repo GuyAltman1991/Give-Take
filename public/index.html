@@ -125,17 +125,6 @@
       <!-- PAGES -->
       <!-- home page -->
       <div id="home-page" class="   ">
-        <!-- שדה חיפוש -->
-        <div id="search-container" class="d-none">
-          <div class="container mb-2">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search picture by title"
-              id="search-input"
-            />
-          </div>
-        </div>
         <div
           id="home-page-headline"
           class="col-12 col-md-10 col-xl-8 container d-block"
@@ -160,6 +149,19 @@
           <i class="bi bi-diagram-3" id="display-mode-three-posts"></i>
           <i class="bi bi-table" id="display-mode-one-post-link"></i>
         </div>
+
+        <!-- שדה חיפוש -->
+        <div id="search-container" class="d-none">
+          <div class="container mb-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search picture by title"
+              id="search-input"
+            />
+          </div>
+        </div>
+
         <div id="data-container">
           <!--  תצוגת פוסטים - שלוש בדף -->
           <div id="display-mode-posts-container" class="bg-danger d-flex"></div>
@@ -191,11 +193,11 @@
             <div class="col-12 col-md-10 col-xl-8">
               <h1 class="text-center display-4">NO DATA</h1>
               <h2 class="fs-5">
-                Opss... It seems that there are no pictures to show
+                Opss... It seems that there are no posts to show
               </h2>
               <hr />
               <p id="goto-create-pic-page-link" class="cursor text-primary">
-                click here to add a new picture...
+                click here to add a new post...
               </p>
             </div>
           </div>
@@ -203,14 +205,12 @@
       </div>
 
       <!-- more details about the post פרטים נוספים על הפוסט -->
-      <div class="center mt-4 d-none" id="more-details-headline">
-        <div class="col-12 col-md-10 col-xl-8 center">
+
+      <div id="more-details-post-page" class="d-none">
+        <div id="more-details-headline" class="center mt-4">
           <h1 class="text-center display-4">MORE DETAILS ABOUT THE POST</h1>
-          <h2 class="fs-5"></h2>
-          <hr />
         </div>
       </div>
-      <div id="more-details-post-page" class="d-none"></div>
 
       <!-- About page -->
       <div id="about-page" class="center mt-4 d-none container">
@@ -950,7 +950,7 @@
 
     <footer>
       <p class="text-light center bottom-height mb-0">
-        &copy; > Created by Guy Altman
+        &copy; > Created by Guy Altman.
       </p>
     </footer>
   </body>

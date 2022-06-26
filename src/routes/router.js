@@ -35,6 +35,7 @@ export const onChangePage = (page) => {
   EDIT_USER_PAGE.className = "d-none";
   MORE_DETAILS_POST_PAGE.className = "d-none";
 
+
   if (page === PAGES.HOME) return (HOME_PAGE.className = "d-block ");
   if (page === PAGES.ABOUT) return (ABOUT_PAGE.className = "d-block ");
   if (page === PAGES.LOGIN) return (LOGIN_PAGE.className = "d-block ");
@@ -43,8 +44,9 @@ export const onChangePage = (page) => {
   if (page === PAGES.EDIT_POST) return (EDIT_POST_PAGE.className = "d-block ");
   if (page === PAGES.EDIT_USER) return (EDIT_USER_PAGE.className = "d-block");
   if (page === PAGES.MORE_DETAILS)
-    return (MORE_DETAILS_POST_PAGE.className = "d-block");
+    return (MORE_DETAILS_POST_PAGE.className = "d-block" );
   ERROR_PAGE.className = "d-block";
+  return
 };
 
 export const setNavDisplay = () => {

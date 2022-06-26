@@ -2,7 +2,7 @@ import {
   MORE_DETAILS_POST_PAGE,
   MORE_DETAILS_HEADLINE,
 } from "../services/domService.js";
-const renderMoreDetailsPage = (posts = []) => {
+const renderMoreDetailsPage = (posts = [], _id) => {
   MORE_DETAILS_POST_PAGE.innerHTML = "";
   MORE_DETAILS_HEADLINE.className = "d-block";
   posts.map((post) => {

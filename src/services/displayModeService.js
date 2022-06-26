@@ -24,7 +24,7 @@ export const handleDisplayMode = (posts, display) => {
 const addOnDelete = (id) => {
   document
     .getElementById("delete" + id)
-    .addEventListener("click", () => handleDeletPost(id));
+    .addEventListener("click", () => handleDeletPost( id));
 };
 
 const addOnEdit = (posts, id) => {

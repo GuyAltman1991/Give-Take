@@ -29,6 +29,8 @@ import {
   createPicFormFieldsListeners,
   handleCancelCreateNewPic,
   onCreateNewPic,
+  onEditPic,
+  onCancelEditPic,
 } from "./services/picService.js";
 import initialData from "./initialData/initialData.js";
 import {
@@ -85,13 +87,15 @@ export const handleSubmitSignup = () => {
 /********** Delete Posts **********/
 export const handleDeletPost = (id) => {
   posts = posts.filter((post) => post._id !== id);
-  console.log(posts);
+
   handleDisplayMode(posts, DISPLAY.THREE);
 };
 
 /********** Edit Posts **********/
 export const onSubmitEditPic = (oldPost, id) => {
-  posts = onEditPic(oldPost, id);
+  posts = onEditPic(posts, id);
+  onCancelEditPic();
+  handleDisplayMode(DISPLAY.ONE, posts);
 };
 
 // ***** Listener האזנה לאירועים  ********
