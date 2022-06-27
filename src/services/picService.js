@@ -32,6 +32,8 @@ import { onChangePage } from "../routes/router.js";
 import PAGES from "../models/pageModel.js";
 import { handleSubmitNewPic, onSubmitEditPic } from "../app.js";
 import renderMoreDetailsPage from "../components/renderMoreDetailsPost.js";
+import { handleDisplayMode } from "./displayModeService.js";
+import DISPLAY from "../models/displayModel.js";
 
 export const setCounter = (array, counterNum, controller = "") => {
   let newCounter;
@@ -274,7 +276,9 @@ export const handleEditPost = (posts, id) => {
 
   mapToModel(posts, id);
   editPicListeners();
-  SUBMIT_EDIT_POST_BTN.addEventListener("click", () => onSubmitEditPic(posts, id));
+  SUBMIT_EDIT_POST_BTN.addEventListener("click", () =>
+    onSubmitEditPic(posts, id)
+  );
   CANCELֹ_EDIT_BTN.addEventListener("click", onCancelEditPic);
 };
 
@@ -314,7 +318,7 @@ export const onCancelEditPic = (posts) => {
 };
 
 export const onEditPic = (posts, id) => {
-  const post = posts.find((posts) => post._id === id);
+  const post = posts.find((post) => post._id === id);
   if (!post) throw new Error("No Posts with the given id...");
   post.url = URL_EDIT_POST_FIELD.value;
   post.alt = ALT_EDIT_POST_FIELD.value;

@@ -93,9 +93,9 @@ export const handleDeletPost = (id) => {
 
 /********** Edit Posts **********/
 export const onSubmitEditPic = (oldPost, id) => {
-  posts = onEditPic(posts, id);
-  onCancelEditPic();
-  handleDisplayMode(DISPLAY.ONE, posts);
+  posts = onEditPic(oldPost, id);
+  onCancelEditPic(posts);
+  handleDisplayMode(posts, DISPLAY.THREE);
 };
 
 // ***** Listener האזנה לאירועים  ********

@@ -3,6 +3,7 @@ import Post from "../models/postsModel.js";
 import User from "../models/UserModel.js";
 // import Post from "../models/PostModel.js";
 // const createdAt = new Post().createdAt
+
 const initialData = () => {
   const data = {
     pictures: [

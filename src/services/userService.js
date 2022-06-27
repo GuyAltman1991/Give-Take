@@ -561,6 +561,7 @@ export const mapToUserModel = (users, id) => {
     phoneedit,
     isBizedit,
   };
+  window.user = user;
   FIRST_EDIT_USER_FIELD.value = firstedit;
   LAST_EDIT_USER_FIELD.value = lastedit;
   STATE_EDIT_USER_FIELD.value = stateedit;
