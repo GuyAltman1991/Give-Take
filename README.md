@@ -27,7 +27,10 @@ javaScript Project
 
 
 תוכנות עבודה:
-html, css, js, bootstrap
+ -html,
+ -css, 
+ -js,
+ -bootstrap
 
 להשתמש בשרת זמני כגון live server 
 
